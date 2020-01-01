@@ -7,27 +7,46 @@
 </head>
 
 <body>
-
+   <h1>"Word Guess Game"</h1>
+   <p id="answers"></p>
+   <p id="question"></p>
+   <p> Type a Letter to begin!</p>
+   <button id= "hint"> hint!</button>
 
     <script type="text/javascript">
-    $(document).ready(function() {
-    var words = [
-        "tarzan", "bambi", "fox and the hound", "toy story", "a bugs life"
-
-    ];
-    var words = words[Math.floor(Math.random() * words.length)];
     
-    var answers = [];
-    for( var i = 0; i < word.length; i++) {
-        answers[i] = "_";
+    var words = ["tarzan" , "bambi" , "fox and the hound" , "toy story" , "a bugs life" ];
+
+    var randomWord = words[Math.floor(Math.random() * words.length)];
+    
+    var answersArray = [];
+    for (var i = 0; i < randomWord.length; i++) {
+        answersArray[i] = "_";
     }
-    var remainingletters = word.length;
-
-
-
-
-
+    var remainingletters = randomWord.length;
     
-    });
+    while (remainingletters > 0) {
+        alert(answersArray.join(" "));
+
+        var guess = prompt("Guess a letter!");
+        if (guess === null) {
+            break;}
+         else if (guess.length !== 1) {
+            alert("Press a Letter key to guess.");
+        } else {
+            for (var j = 0; j < randomWord.length; j++) {
+                if (randomWord[j] === guess) {
+                    answersArray[j] = guess;
+                    remainingletters--;
+                }
+            }
+        }
+    }
+    
+    alert(answersArray.join (" "));
+    alert("Nice! the answer was " + randomWord);
+    
+   
     </script>
 </body>
+</html>
