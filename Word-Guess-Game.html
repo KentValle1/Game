@@ -4,49 +4,50 @@
 <head>
     <meta charset="UTF-8">
     <title>Word Guess</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
 <body>
-   <h1>"Word Guess Game"</h1>
-   <p id="answers"></p>
-   <p id="question"></p>
-   <p> Type a Letter to begin!</p>
-   <button id= "hint"> hint!</button>
+    <div class="container-lg">
+    <div class="jumbotron">
+        <h1 class="display-4">Lets play a Game!</h1>
+      </div>
+      <h1>Type a Letter to Guess: Based on the Animated Disney Movie!<span class="badge badge-secondary"></span></h1>
+      <h2>
+          Which Disney Movie Am I from?
+      </h2>
+      <!-- images would change and be inserted here for the hints to the words. -->
+        <img id="image" src="/Word-Guess-Game/assests/images">
+    </div>
+      <br>
+      <div>
+          <h3 id= "theWord">_ _ _ _ _</h3>
+      </div>
+      <div id="scoreboard">
+        <div class="sidebar">
+            <h3>Guesses Left:
+                <span id="guessesRemaining"></span>
+            </h3>
+        </div>
+      </div>
+      <div class="sidebar">
+          <h3>Wins:
+              <span id="winstracker"></span>
+          </h3>
+      </div>
+      <div calss="sidebar">
+          <h3>Losses:
+              <span id="losstracker"></span>
+          </h3>
+      </div>
+      <div class="sidebar">
+          <h3>Strike Letters:
+              <span id="playerguesses"></span>
+          </h3>
+      </div>
 
-    <script type="text/javascript">
-    
-    var words = ["tarzan" , "bambi" , "fox and the hound" , "toy story" , "a bugs life" ];
+  
 
-    var randomWord = words[Math.floor(Math.random() * words.length)];
-    
-    var answersArray = [];
-    for (var i = 0; i < randomWord.length; i++) {
-        answersArray[i] = "_";
-    }
-    var remainingletters = randomWord.length;
-    
-    while (remainingletters > 0) {
-        alert(answersArray.join(" "));
-
-        var guess = prompt("Guess a letter!");
-        if (guess === null) {
-            break;}
-         else if (guess.length !== 1) {
-            alert("Press a Letter key to guess.");
-        } else {
-            for (var j = 0; j < randomWord.length; j++) {
-                if (randomWord[j] === guess) {
-                    answersArray[j] = guess;
-                    remainingletters--;
-                }
-            }
-        }
-    }
-    
-    alert(answersArray.join (" "));
-    alert("Nice! the answer was " + randomWord);
-    
-   
-    </script>
+    <script src="assests/game.js"></script>
 </body>
 </html>
