@@ -10,9 +10,9 @@ var losses = 0;
 var guessesRemaining = 9
 
 function image() {
-    if (rWord === words[0])
-    document.getElementById("image").src = "Word-Guess-Game/assets/images/green-start-button-png-2.png"
-}
+    if (rWord === words[0]) {
+    document.getElementById("image").src = "./assets/images/tarzan.jpg";
+}}
 function Game() {
     rWord = words[Math.floor(Math.random() * words.length)];
     letters = rWord.split("");
